@@ -17,10 +17,7 @@ export default class Main extends Component<Props> {
     constructor(props) {
       super(props);
       this.state = {
-        search: "angular",
-        isLoading: false,
-        dataSource: [],
-        testData: "Test Data"
+
       };
     }
   
@@ -45,22 +42,15 @@ export default class Main extends Component<Props> {
     }
   
     render() {
+      const {navigate} = this.props.navigation;
       return (
         <View style={styles.container}>
           <Text style={styles.welcome}>Welcome to React Native!</Text>
           <Text style={styles.instructions}>To get started, edit Main.js</Text>
           <Text style={styles.instructions}>{instructions}</Text>
-          <Text style={styles.instructions}>go to {this.state.testData}</Text>
-  
-          <TextInput
-            style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-            onChangeText={testData => this.setState({ testData })}
-          />
-  
+    
           <Button
-            onPress={() => {
-              Alert.alert(this.state.testData);
-            }}
+            onPress={() => navigate('Tool')}
             title="Press Me"
           />  
         </View>
