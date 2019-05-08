@@ -17,7 +17,9 @@ export default class Other extends Component<Props> {
     constructor(props) {
       super(props);
       this.state = {
-        testData: 'empty'
+        testData: 'empty',
+        // name: props.name
+        name: 'guys'
       };
     }
   
@@ -42,9 +44,10 @@ export default class Other extends Component<Props> {
     }
   
     render() {
+      const {params} = this.props.navigation.state;
       return (
         <View style={styles.container}>
-          <Text style={styles.welcome}>Whats goin on guys</Text>
+          <Text style={styles.welcome}>Whats goin on {params.name}</Text>
           <Text style={styles.instructions}>text here : {this.state.testData}</Text>
   
           <TextInput

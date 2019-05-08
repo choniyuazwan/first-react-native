@@ -50,7 +50,7 @@ export default class Main extends Component<Props> {
           <Text style={styles.instructions}>{instructions}</Text>
     
           <Button
-            onPress={() => navigate('Tool')}
+            onPress={() => navigate('Tool', {name: 'Adam'})}
             title="Press Me"
           />  
         </View>
