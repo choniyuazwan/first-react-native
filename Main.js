@@ -26,72 +26,83 @@ export default class Main extends Component<Props> {
 
       kotaSelected: 'pilih kota'
     }
-  
-}
 
-_openDrawer=()=>{
-  this.props.navigation.openDrawer();
-}
+  }
 
-parentFunction() {
-  alert('hello, i am from parent');
-}
+  _openDrawer = () => {
+    this.props.navigation.openDrawer();
+  }
 
-render() {
-  const { navigate } = this.props.navigation;
-  return (
-    <View style={styles.container}>
-      
-      <Button
-        onPress={this._openDrawer}
-        title="open drawer"
-      />
+  parentFunction() {
+    alert('hello, i am from parent');
+  }
 
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit Main.js</Text>
-      <Text style={styles.instructions}>{instructions}</Text>
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <ScrollView>
+        <View style={styles.container}>
 
-      <Button
-        onPress={() => navigate('Tool', { name: 'Adam' })}
-        title="Press Me"
-      />
+          <Button
+            onPress={this._openDrawer}
+            title="open drawer"
+          />
 
-      <ButtonOther />
-      {/* <PropsOther data={this.state.name} dataFun={this.parentFunction} */}
-      <PropsOther dataFun={this.parentFunction}
-      />
+          <Button
+            onPress={() => { alert("remove storage") }}
+            title="remove storage"
+          />
 
-      <TextInputs propfromparent={(propfromchild) => this.setState({ propfromchild })} />
+          <Button
+            onPress={() => { alert("check login") }}
+            title="check login"
+          />
 
-      <Text style={styles.instructions}>text from child : {this.state.propfromchild}</Text>
+          <Text style={styles.welcome}>Welcome to React Native!</Text>
+          <Text style={styles.instructions}>To get started, edit Main.js</Text>
+          <Text style={styles.instructions}>{instructions}</Text>
 
-      <Button
-        onPress={() => alert(this.state.propfromchild)}
-        title="input text child"
-      />
+          <Button
+            onPress={() => navigate('Tool', { name: 'Adam' })}
+            title="Press Me"
+          />
+
+          <ButtonOther />
+          {/* <PropsOther data={this.state.name} dataFun={this.parentFunction} */}
+          <PropsOther dataFun={this.parentFunction}
+          />
+
+          <TextInputs propfromparent={(propfromchild) => this.setState({ propfromchild })} />
+
+          <Text style={styles.instructions}>text from child : {this.state.propfromchild}</Text>
+
+          <Button
+            onPress={() => alert(this.state.propfromchild)}
+            title="input text child"
+          />
 
 
-      <Text style={styles.welcome}>Dropdown</Text>
+          <Text style={styles.welcome}>Dropdown</Text>
 
-      <Picker
-        selectedValue={this.state.kotaSelected}
-        style={{ height: 50, width: 100 }}
-        onValueChange={(itemValue, itemIndex) =>
-          this.setState({ kotaSelected: itemValue })
-        }>
-        <Picker.Item label="dki" value="dki" />
-        <Picker.Item label="jabar" value="jabar" />
-        <Picker.Item label="jateng" value="jateng" />
-        <Picker.Item label="diy" value="diy" />
-      </Picker>
+          <Picker
+            selectedValue={this.state.kotaSelected}
+            style={{ height: 50, width: 100 }}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setState({ kotaSelected: itemValue })
+            }>
+            <Picker.Item label="dki" value="dki" />
+            <Picker.Item label="jabar" value="jabar" />
+            <Picker.Item label="jateng" value="jateng" />
+            <Picker.Item label="diy" value="diy" />
+          </Picker>
 
-      <Text style={styles.instructions}>kota : {this.state.kotaSelected}</Text>
+          <Text style={styles.instructions}>kota : {this.state.kotaSelected}</Text>
 
-      <Pickers data={this.state.kotaSelected} />
-
-    </View>
-  );
-}
+          <Pickers data={this.state.kotaSelected} />
+        </View>
+      </ScrollView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
