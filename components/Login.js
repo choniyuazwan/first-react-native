@@ -110,7 +110,7 @@ export default class Login extends Component<Props> {
         </View>
 
         <Button style={styles.button}
-          onPress={this._loginAxios}
+          onPress={this._login}
           title="Login"
         />
 

@@ -67,6 +67,11 @@ export default class Main extends Component<Props> {
             title="Press Me"
           />
 
+          <Button
+            onPress={() => navigate('AddLesson')}
+            title="Add lesson"
+          />
+          
           <ButtonOther />
           {/* <PropsOther data={this.state.name} dataFun={this.parentFunction} */}
           <PropsOther dataFun={this.parentFunction}
